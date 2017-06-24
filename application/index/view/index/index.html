@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>{$category_name}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__public__/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__public__/template/blog/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <include file="index/index/header"/>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+         
+          <?php foreach($article as $a){ ?>
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+              <a href="{:url('index/Index/article',array('id'=>$a['id']))}">{$a['title']}</a>
+            </h2>
+            <p class="blog-post-meta">{:format_date($a['post_time'])}</p>
+            <p><img src="{$a['thumbnail_image']}">
+			{:mb_substr(strip_tags($a['content']),0,200,'utf-8')}...</p>
+          </div><!-- /.blog-post -->
+          <?php }?>
+
+          <nav aria-label="...">
+            <notempty name="article">
+            {$page}
+            </notempty>
+            <empty name="article">
+            没有文章...
+            </empty>
+          
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <include file="Index/index/sider"/> 
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <include file="index/index/footer"/>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__public__/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__public__/lib/tether/dist/js/tether.min.js"></script>
+    <script src="__public__/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="__public__/template/blog/main.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<form class="bd-search hidden-sm-down" action="{:url('index/index/search')}" method="get">
+  <input type="text" name="keyword" class="form-control" id="search-input" placeholder="搜索..." value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" autocomplete="off">
+  <div class="dropdown-menu bd-search-results" id="search-results"></div>
+</form>
+<br>
+<div class="sidebar-module sidebar-module-inset">
+  <h4>关于</h4>
+  <p>
+    昵称: 忧零猎手<br>
+    中国 河南 信阳<br>
+    62006464@qq.com<br>
+    <a href="mailto:62006464@qq.com" class="card-link" target="_blank">发邮件</a>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=62006464&site=qq&menu=yes" class="card-link" target="_blank">在线QQ</a>
+  </p>
+</div>
+<div class="sidebar-module">
+  <h4>分类</h4>
+  <ol class="list-unstyled">
+    <?php foreach($category as $cat){ ?>
+    <li> <a href="{:Url::to('index/Index/category',array('id'=>$cat['id']))}"><?php echo $cat['name']?></a> (<?php echo $cat['num']?>)</li>
+    <?php }?>
+  </ol>
+</div>
+<div class="sidebar-module">
+  <h4>资料</h4>
+  <ol class="list-unstyled">
+    <li><a href="/adoc/es6tutorial" rel='nofollow' target="_blank">ES6 Javascript</a></li>   
+    <li><a href="/adoc/jquery/cheatsheet.html" rel='nofollow' target="_blank">jQuery 1.10.3文档</a></li>
+    <li><a href="/adoc/jquerymobile/demos" rel='nofollow' target="_blank">jQuery Mobile 文档</a></li>
+    <li><a href="/adoc/bootstrap/" rel='nofollow' target="_blank">Bootstrap3文档</a></li>
+    <li><a href="/adoc/bootstrapv4" rel='nofollow' target="_blank">Bootstrap4 alpha文档</a></li>
+    <li><a href="/adoc/vue2" rel='nofollow' target="_blank">Vue.js 2.0文档</a></li>
+    <li><a href="/adoc/nodejsapi" rel='nofollow' target="_blank">Nodejs文档</a></li>
+
+    <li><a href="/adoc/thinkcmf/docs/cmfx" rel='nofollow' target="_blank">Thinkcmf文档</a></li>
+    <li><a href="/adoc/cordova/docs/zh-cn/latest" rel='nofollow' target="_blank">Cordova文档</a></li>
+
+
+    <li><a href="https://github.com/ElemeFE/" rel='nofollow' target="_blank">ElemeFE <small>(站外)</small></a></li>
+    <li><a href="http://www.thinkphp.cn" rel='nofollow' target="_blank">Thinkphp官网 <small>(站外)</small></a></li>
+    <li><a href="http://www.thinkcmf.com/" rel='nofollow' target="_blank">Thinkcmf官网 <small>(站外)</small></a></li>
+    <li><a href="http://www.cordova.org.cn/" rel='nofollow' target="_blank">Cordova中文网 <small>(站外)</small></a></li>
+
+    <li><a href="/adoc/downloads" rel='nofollow' target="_blank">文件下载</a></li>
+  </ol>
+</div>
+
+<div class="sidebar-module">
+  <h4>其它</h4>
+  <ol class="list-unstyled">
+    
+    
+  </ol>
+</div>

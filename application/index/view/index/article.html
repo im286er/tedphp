@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>{$article['title']} - 忧零猎手的Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__public__/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__public__/template/blog/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!--[if lte IE 10]>
+    该网站仅支持IE10以上浏览器!
+    <![endif]-->
+
+    <include file="index/index/header"/>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">  
+          <div class="blog-post">
+            <h2 class="blog-post-title">{$article['title']}</h2>
+            <p class="blog-post-meta">
+              {:format_date($article['post_time'])}&nbsp;&nbsp;
+              分类: <a href="{:Url::to('index/Index/category',array('id'=>$article['cat']['id']))}"><?php echo $article['cat']['name'] ?></a>
+            </p>
+            <p>{$article['content']}</p>
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <include file="Index/index/sider"/>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <include file="index/index/footer"/>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__public__/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__public__/lib/tether/dist/js/tether.min.js"></script>
+    <script src="__public__/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="__public__/lib/prettify/js/prettify.js"></script>
+    <link type="text/css" rel="stylesheet" href="__public__/lib/prettify/css/prettify.css"/>
+    
+    <script src="__public__/template/blog/main.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+      $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+      window.prettyPrint && prettyPrint();
+    });
+    </script>
+    <style>
+    .prettyprint.linenums ol li, pre.prettyprint.linenums ol li{padding-left: 0.8rem;}
+    </style>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
